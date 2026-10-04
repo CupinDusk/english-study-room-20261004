@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#15233f"><meta name="description" content="初中常用词自测与基础语法学习。先回忆，再看释义；用例句学懂词义和句子结构。">
+ <title>英语练习室 · 词汇与语法</title>
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232552ed'/%3E%3Ctext x='9' y='43' font-family='Arial' font-weight='bold' font-size='33' fill='white'%3EAa%3C/text%3E%3C/svg%3E">
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <a class="skip" href="#main">跳到主要内容</a>
+ <aside class="sidebar">
+  <a class="brand" href="#words"><span class="brand-mark">Aa<span></span></span><span>英语练习室<small>ENGLISH STUDY ROOM</small></span></a>
+  <p class="side-label">学习手册</p>
+  <nav class="main-nav" aria-label="主要导航">
+   <button data-view="words" class="active"><span class="nav-icon">Aa</span>词汇自测<span class="nav-count" id="nav-word-count"></span></button>
+   <button data-view="grammar"><span class="nav-icon">≡</span>语法地图<span class="nav-count" id="nav-grammar-count"></span></button>
+  </nav>
+  <div class="side-note"><span class="tiny-caps">HOW TO LEARN</span><h3>认识单词，也读懂句子。</h3><p>先回忆，再揭晓。拿不准的含义，留到下一轮复习。</p><div class="side-line"></div><p>语法从词性、句子结构出发，再把从句一层层拼起来。</p></div>
+  <div class="side-bottom"><span class="save-dot"></span>进度自动保存在当前浏览器<button id="export-progress">导出学习记录</button></div>
+ </aside>
+ <main id="main" tabindex="-1">
+  <div id="storage-note" class="notice" hidden>此浏览器无法保存进度。做完后请导出学习记录。</div>
+  <section id="words-view" class="view">
+   <header class="page-header"><div><div class="eyebrow">VOCABULARY / 01</div><h1>常用词，逐个测扎实。</h1><p>会“离开”，也要会“留下”。每个含义都单独记录。</p></div><button class="quiet-button" id="print-weak">打印薄弱词</button></header>
+   <div class="stats" id="word-stats" aria-live="polite"></div>
+   <section class="practice-banner" aria-labelledby="practice-title"><div><span class="pill light">先测常见多义</span><h2 id="practice-title">一个熟词，可能不止一个答案。</h2><p>用短句检查具体含义，避免只记住单词的第一种意思。</p><div class="word-sample"><span>leave<small>离开 / 留下</small></span><span>move<small>移动 / 感动</small></span><span>miss<small>想念 / 错过</small></span></div></div><div class="practice-actions"><button class="button white" id="start-common">开始多义词自测</button><button class="banner-link" id="start-weak">复习薄弱含义 <span id="weak-sense-count">0</span></button></div></section>
+   <section class="word-library" aria-labelledby="word-library-title">
+    <div class="section-heading"><div><h2 id="word-library-title">完整词表</h2><p id="word-range"></p></div><div class="heading-actions"><button class="quiet-button" id="random-test">随机测20个</button><label class="switch"><input type="checkbox" id="show-meanings"><span></span>显示全部释义</label></div></div>
+    <div class="filters"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"></circle><path d="m15 15 5 5"></path></svg><input id="word-search" placeholder="搜索英文或中文释义" aria-label="搜索英文或中文释义" type="search" autocomplete="off"></label><select id="status-filter" aria-label="掌握情况"><option value="all">全部掌握情况</option><option value="new">尚未测过</option><option value="weak">待复习</option><option value="partial">部分已测</option><option value="known">全部含义熟悉</option></select><select id="scope-filter" aria-label="词汇范围"><option value="all">全部词汇</option><option value="focus">常见多义 / 易混</option></select><select id="pos-filter" aria-label="词性"><option value="all">全部词性</option><option value="n.">名词 n.</option><option value="v.">动词 v.</option><option value="adj.">形容词 adj.</option><option value="adv.">副词 adv.</option><option value="prep.">介词 prep.</option><option value="pron.">代词 pron.</option><option value="conj.">连词 conj.</option><option value="modal">情态动词</option></select></div>
+    <div class="alphabet" id="alphabet" aria-label="按首字母筛选"></div>
+    <div class="list-meta"><span id="list-count" aria-live="polite"></span><span>先说出意思，再点开核对</span></div>
+    <div id="word-grid" class="word-grid"></div>
+    <div class="pagination"><button id="prev-page" class="quiet-button">上一页</button><span id="page-label"></span><button id="next-page" class="quiet-button">下一页</button></div>
+   </section>
+   <details class="source-note"><summary>词表范围与使用说明</summary><p id="source-scope"></p><p>“熟悉 / 拿不准 / 不会”是你的自评，不等于正式测评结果。每次建议20个含义；复习后换个例句解释或造句，再判断是否熟悉。初一还没学过的词和结构，可以记为“待学”，不必一次掌握。</p><p>释义参考 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noreferrer">ECDICT 开源词典</a>，常见多义例句与语法讲解为本手册整理。<a href="ECDICT-LICENSE.txt" target="_blank">词典许可</a>。课标原文：<a href="https://www.ictr.edu.cn/download_center/ywjy/p/1.html" target="_blank" rel="noreferrer">教育部课程教材研究所</a>。语法核对参考：<a href="https://learnenglish.britishcouncil.org/grammar" target="_blank" rel="noreferrer">British Council Grammar</a>。</p><p>学习记录只保存在当前设备的浏览器中。更换设备可导出再导入；清理浏览器数据会删除本地进度。</p><button class="quiet-button" id="export-progress-secondary" style="margin-top:14px">导出学习记录</button><label class="import-control">导入学习记录<input id="import-progress" type="file" accept="application/json,.json"></label></details>
+  </section>
+  <section id="grammar-view" class="view" hidden>
+   <header class="page-header"><div><div class="eyebrow">GRAMMAR / 02</div><h1>句子有骨架，从句有位置。</h1><p>先看它在句子里做什么，再学它内部怎样排列。</p></div><button class="quiet-button" id="print-lesson">打印当前讲解</button></header>
+   <div class="grammar-intro"><span class="pill">建议顺序</span><p><button data-lesson="parts">词性</button><span>›</span><button data-lesson="sentence">句子成分</button><span>›</span><button data-lesson="patterns">五种句型</button><span>›</span><button data-lesson="object-clause">宾语从句</button><span>›</span><button data-lesson="relative">定语从句</button></p></div>
+   <div class="grammar-layout"><nav id="grammar-nav" class="grammar-nav" aria-label="语法章节"></nav><article id="lesson" class="lesson"></article></div>
+  </section>
+  <footer class="page-footer"><span>少猜一点，多懂一点。</span><span>英语练习室 · 初中学习手册</span></footer>
+ </main>
+ <dialog id="study-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+ <div id="toast" role="status" aria-live="polite"></div>
+ <script src="core.js"></script><script src="vocabulary.js"></script><script src="grammar.js"></script><script src="app.js"></script>
+</body>
+</html>
